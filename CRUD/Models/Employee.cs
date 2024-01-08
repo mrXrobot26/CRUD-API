@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CRUD.Models
 {
@@ -11,5 +12,8 @@ namespace CRUD.Models
         [Range(9000, 12000, ErrorMessage = "Salary must be between 9000 and 12000.")]
         public int Salary { get; set; }
         public int Age { get; set; }
+        [ForeignKey("department")]
+        public int? DeptID { get; set; }
+        public virtual Department department { get; set; }
     }
 }
